@@ -1,0 +1,384 @@
+  /* Global Styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: var(--background-color, #121212); /* Dark theme background with variable for theme switching */
+    color: var(--text-color, #fff); /* White text for contrast */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth theme change transition */
+  }
+
+  :root {
+    --background-color: #121212;
+    --text-color: #fff;
+    --accent-color: #0ef;
+    --button-color: #0ef;
+    --button-hover-color: #0cdf;
+    --header-border-color: #0ef;
+  }
+
+  .light-theme {
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --accent-color: #3498db;
+    --button-color: #3498db;
+    --button-hover-color: #2980b9;
+    --header-border-color: #3498db;
+  }
+
+  header {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--header-border-color);
+    padding-bottom: 10px;
+  }
+
+  main {
+    width: 100%;
+    max-width: 900px;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    color: #ffb347;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    background: #000;
+    box-shadow: 0 0 50px var(--accent-color);
+    border-radius: 20px;
+    padding: 40px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .wrapper:hover {
+    animation: animate 1s linear infinite;
+  }
+
+  @keyframes animate {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .form-wrapper {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+
+  .wrapper.active .form-wrapper.one {
+    transform: translateY(-450px);
+  }
+
+  .wrapper .form-wrapper.two {
+    top: 450px;
+    left: 0;
+  }
+
+  .wrapper.active .form-wrapper.two {
+    transform: translateY(-450px);
+  }
+
+  .input-group {
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+  }
+
+  .input-group label {
+    position: absolute;
+    top: -28%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  .input-group input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+  .input-group input:focus~label,
+  .input-group input:valid~label {
+    top: -5px;
+  }
+
+  /* Profile Picture Upload */
+.profile-picture {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.profile-picture input[type="file"] {
+  margin-top: 10px;
+}
+
+#profile-preview {
+  margin-top: 10px;
+}
+
+/* Personal Info Styling */
+.input-group.personal-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input-group.personal-info label {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  
+}
+
+.input-group.personal-info i {
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+.input-group.personal-info input {
+  width: 100%;
+  padding: 10px;
+ color: #fff;
+}
+
+.input-group.personal-info input::placeholder {
+  color: #aaa;
+}
+
+
+  /* Button Styles */
+  button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: var(--button-color);
+    box-shadow: 0 0 10px var(--button-color);
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background: var(--button-hover-color);
+    transform: scale(1.05);
+  }
+
+  #resume-display {
+    display: none;
+    margin-top: 40px;
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .resume-template {
+    padding: 20px;
+    background-color: #1e1e1e; /* Darker background for resume */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .resume-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .resume-name img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .resume-contact {
+    font-size: 1rem;
+    color: #aaa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .resume-contact i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  .resume-section {
+    margin-bottom: 20px;
+  }
+  
+  .resume-section h2 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+  }
+  
+  .resume-section p {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  #resume-profile-picture {
+    width: 150px;  /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 50%; /* Optional for circular shape */
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto 15px; /* Centers the image horizontally and adds bottom margin */
+}
+
+  
+  /* Skill Section */
+  .skill {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+    font-size: 0.9rem;
+    display: inline-block;
+  }
+  
+  /* Editable Sections */
+  [contenteditable="true"]:hover {
+    border: 1px dashed #aaa;
+    padding: 5px;
+    cursor: text;
+    background-color: #585858;
+  }
+  
+  /* Save Resume Button */
+  #save-resume-btn {
+    background-color: #21f344;
+    color: rgb(15, 10, 10);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    margin-top: 20px;
+  }
+  
+  #save-resume-btn:hover {
+    background-color: #0c963d;
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 768px) {
+    .resume-name {
+      font-size: 1.5rem;
+    }
+  
+    .resume-name img {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .resume-contact {
+      font-size: 1rem;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Theme Toggle Button */
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--button-color);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--button-color);
+  }
+
+  .theme-toggle:hover {
+    background: var(--button-hover-color);
+  }

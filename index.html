@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Dynamic Resume Builder</h1>
+        <!-- Theme Selector -->
+        <div class="theme-switcher">
+            <label for="theme-select">Choose Theme:</label>
+            <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="colorful">Colorful</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <div class="form-wrapper one">
+                <form id="resume-form">
+                    <!-- Personal Information Section -->
+                    <section>
+                        <h2>Personal Information</h2>
+                    
+                        <!-- Profile Picture Upload -->
+                        <div class="input-group profile-picture">
+                            <label for="profile-picture">Profile Picture:</label>
+                            <input type="file" id="profile-picture" accept="image/*">
+                            <img id="profile-preview" alt="Profile Preview" style="display: none; max-width: 150px; border-radius: 50%;">
+                        </div>
+                    
+                        <div class="input-group personal-info">
+                            <label for="name"><i class="fas fa-user"></i> Name:</label>
+                            <input type="text" id="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="input-group personal-info">
+                            <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                            <input type="email" id="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="input-group personal-info">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+                            <input type="tel" id="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="input-group personal-info">
+                            <label for="address"><i class="fas fa-home"></i> Address:</label>
+                            <input type="text" id="address" required placeholder="Enter your address">
+                        </div>
+                    </section>
+                     
+                    <!-- Education Section -->
+                    <section>
+                        <h2>Education</h2>
+                        <div class="input-group">
+                            <input type="text" id="education-institution" required placeholder="Enter your institution">
+                            <label for="education-institution">Institution:</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="education-degree" required placeholder="Enter your degree">
+                            <label for="education-degree">Degree:</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="education-year" required placeholder="Enter graduation year">
+                            <label for="education-year">Year of Graduation:</label>
+                        </div>
+                    </section>
+
+                    <!-- Work Experience Section -->
+                    <section>
+                        <h2>Work Experience</h2>
+                        <div class="input-group">
+                            <input type="text" id="work-experience-company" required placeholder="Enter company name">
+                            <label for="work-experience-company">Company:</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="work-experience-position" required placeholder="Enter your position">
+                            <label for="work-experience-position">Position:</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="work-experience-years" required placeholder="Enter years worked">
+                            <label for="work-experience-years">Years Worked:</label>
+                        </div>
+                    </section>
+
+                    <!-- Skills Section -->
+                    <section>
+                        <h2>Skills</h2>
+                        <div class="input-group">
+                            <input type="text" id="skills" required placeholder="e.g., JavaScript, TypeScript, HTML, CSS">
+                            <label for="skills">Skills (separated by commas):</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="username" required placeholder="e.g., username.vercel.app/resume">
+                            <label for="username">Username:</label>
+                        </div>
+                    </section>
+
+                    <button type="submit" id="generate-resume-btn" class="animated-btn">Generate Resume</button>
+                </form>
+            </div>
+
+            <div class="form-wrapper two">
+                <!-- Resume Display Section -->
+                <section id="resume-display" style="display: none;">
+                    <div class="resume" id="resume-content">
+                        <section id="personal-info">
+                            <h2>Personal Information</h2>
+                            <img src="" alt="Profile Picture" id="resume-profile-picture"> <!-- Corrected ID -->
+                            <p><strong><i class="fas fa-user"></i> Name:</strong> <span id="resume-name"></span></p>
+                            <p><strong><i class="fas fa-envelope"></i> Email:</strong> <span id="resume-email"></span></p>
+                            <p><strong><i class="fas fa-phone"></i> Phone:</strong> <span id="resume-phone"></span></p>
+                            <p><strong><i class="fas fa-home"></i> Address:</strong> <span id="resume-address"></span></p>
+                        </section>
+                
+                        <section id="education">
+                            <h2>Education</h2>
+                            <p id="resume-education"></p>
+                        </section>
+                
+                        <section id="work-experience">
+                            <h2>Work Experience</h2>
+                            <p id="resume-experience"></p>
+                        </section>
+                
+                        <section id="skills">
+                            <h2>Skills</h2>
+                            <ul id="resume-skills"></ul>
+                        </section>
+                    </div>
+                    <button id="save-resume-btn">Save Changes</button>
+                    <button id="copy-link-btn" style="display: none;">Copy Link</button>
+                    <button id="download-pdf-btn" style="display: none;">Download as PDF</button>
+                </section>
+                
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+</html>
